@@ -102,6 +102,7 @@ export default {
         fourIsGrayscale: 'Grey model',
         fourIsInvert: 'Color weak mode',
         fourIsDark: 'Dark Mode',
+        fontFamily: 'Font Family',
         fourIsWartermark: 'Turn on watermark',
         fourWartermarkText: 'Watermark copy',
         fiveTitle: 'Other settings',

@@ -277,7 +277,7 @@ const { resetCrudOptions } = useCrud({
 	padding: 0 10px;
 	border-radius: 8px 0 0 8px;
 	box-sizing: border-box;
-	background-color: #fff;
+	background-color: var(--el-color-white);
 }
 .dept-user-com-table {
 	height: calc(100% - 200px);

@@ -117,6 +117,7 @@ export default {
         fourIsGrayscale: '灰色模式',
         fourIsInvert: '色弱模式',
         fourIsDark: '深色模式',
+        fontFamily: '字体风格',
         fourIsWartermark: '开启水印',
         fourWartermarkText: '水印文案',
         fiveTitle: '其它设置',

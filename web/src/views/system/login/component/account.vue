@@ -39,7 +39,7 @@
 			</el-col>
 		</el-form-item>
 		<el-form-item class="login-animation4">
-			<el-button type="primary" class="login-content-submit" round @click="loginClick"
+			<el-button type="primary" class="login-content-submit" @click="loginClick"
 				:loading="loading.signIn">
 				<span>{{ $t('message.account.accountBtnText') }}</span>
 			</el-button>
@@ -80,8 +80,8 @@ export default defineComponent({
 		const state = reactive({
 			isShowPassword: false,
 			ruleForm: {
-				username: '',
-				password: '',
+				username: 'superadmin',
+				password: 'admin123456',
 				captcha: '',
 				captchaKey: '',
 				captchaImgBase: '',

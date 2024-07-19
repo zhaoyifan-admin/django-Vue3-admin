@@ -21,6 +21,7 @@ export const useThemeConfig = defineStore('themeConfig', {
 			primary: '#409eff',
 			// 是否开启深色模式
 			isIsDark: false,
+			fontFamily: 'defult',
 
 			/**
 			 * 顶栏设置
