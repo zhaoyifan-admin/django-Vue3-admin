@@ -1,6 +1,5 @@
 <template>
   <fs-page>
-
     <fs-crud ref="crudRef" v-bind="crudBinding">
       <template #header-middle>
         <el-tabs v-model="tabActivted" @tab-click="onTabClick">

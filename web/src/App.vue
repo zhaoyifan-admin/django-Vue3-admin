@@ -114,7 +114,7 @@ const wsReceive = (message: any) => {
 			title: '系统消息',
 			message: data.content,
 			type: 'success',
-			position: 'bottom-right',
+			position: 'top-right',
 			duration: 5000,
 		});
 	}

@@ -10,7 +10,6 @@ from dvadmin.utils.json_response import DetailResponse
 from dvadmin.utils.serializers import CustomModelSerializer
 from dvadmin.utils.viewset import CustomModelViewSet
 
-
 class FileSerializer(CustomModelSerializer):
     url = serializers.SerializerMethodField(read_only=True)
 

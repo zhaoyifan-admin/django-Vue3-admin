@@ -47,7 +47,7 @@
 			<p>Copyright © {{ getSystemConfig['login.copyright'] || '2021-2024 django-vue-admin.com' }} 版权所有</p>
 			<p class="la-other">
 				<a href="https://beian.miit.gov.cn" target="_blank">{{ getSystemConfig['login.keep_record'] ||
-					'晋ICP备18005113号-3' }}</a>
+					'备案号' }}</a>
 				|
 				<a :href="getSystemConfig['login.help_url'] ? getSystemConfig['login.help_url'] : 'https://django-vue-admin.com'"
 					target="_blank">帮助</a>

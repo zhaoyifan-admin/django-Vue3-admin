@@ -102,7 +102,8 @@ class Post(CoreModel):
 
 class Dept(CoreModel):
     name = models.CharField(max_length=64, verbose_name="部门名称", help_text="部门名称")
-    key = models.CharField(max_length=64, unique=True, null=True, blank=True, verbose_name="关联字符", help_text="关联字符")
+    key = models.CharField(max_length=64, unique=True, null=True, blank=True, verbose_name="关联字符",
+                           help_text="关联字符")
     sort = models.IntegerField(default=1, verbose_name="显示排序", help_text="显示排序")
     owner = models.CharField(max_length=32, verbose_name="负责人", null=True, blank=True, help_text="负责人")
     phone = models.CharField(max_length=32, verbose_name="联系电话", null=True, blank=True, help_text="联系电话")
@@ -196,26 +197,31 @@ class Menu(CoreModel):
                     cls.get_all_parent(parent_id, all_list, nodes)
                 nodes.append(ele)
         return nodes
+
     class Meta:
         db_table = table_prefix + "system_menu"
         verbose_name = "菜单表"
         verbose_name_plural = verbose_name
         ordering = ("sort",)
 
+
 class MenuField(CoreModel):
     model = models.CharField(max_length=64, verbose_name='表名')
     menu = models.ForeignKey(to='Menu', on_delete=models.CASCADE, verbose_name='菜单', db_constraint=False)
     field_name = models.CharField(max_length=64, verbose_name='模型表字段名')
     title = models.CharField(max_length=64, verbose_name='字段显示名')
+
     class Meta:
         db_table = table_prefix + "system_menu_field"
         verbose_name = "菜单字段表"
         verbose_name_plural = verbose_name
         ordering = ("id",)
 
+
 class FieldPermission(CoreModel):
     role = models.ForeignKey(to='Role', on_delete=models.CASCADE, verbose_name='角色', db_constraint=False)
-    field = models.ForeignKey(to='MenuField', on_delete=models.CASCADE,related_name='menu_field', verbose_name='字段', db_constraint=False)
+    field = models.ForeignKey(to='MenuField', on_delete=models.CASCADE, related_name='menu_field', verbose_name='字段',
+                              db_constraint=False)
     is_query = models.BooleanField(default=1, verbose_name='是否可查询')
     is_create = models.BooleanField(default=1, verbose_name='是否可创建')
     is_update = models.BooleanField(default=1, verbose_name='是否可更新')
@@ -330,7 +336,8 @@ class Dictionary(CoreModel):
         (7, "images"),
     )
     label = models.CharField(max_length=100, blank=True, null=True, verbose_name="字典名称", help_text="字典名称")
-    value = models.CharField(max_length=200, blank=True, null=True, verbose_name="字典编号", help_text="字典编号/实际值")
+    value = models.CharField(max_length=200, blank=True, null=True, verbose_name="字典编号",
+                             help_text="字典编号/实际值")
     parent = models.ForeignKey(
         to="self",
         related_name="sublist",
@@ -399,7 +406,7 @@ def media_file_name(instance, filename):
 
 class FileList(CoreModel):
     name = models.CharField(max_length=200, null=True, blank=True, verbose_name="名称", help_text="名称")
-    url = models.FileField(upload_to=media_file_name, null=True, blank=True,)
+    url = models.FileField(upload_to=media_file_name, null=True, blank=True, )
     file_url = models.CharField(max_length=255, blank=True, verbose_name="文件地址", help_text="文件地址")
     engine = models.CharField(max_length=100, default='local', blank=True, verbose_name="引擎", help_text="引擎")
     mime_type = models.CharField(max_length=100, blank=True, verbose_name="Mime类型", help_text="Mime类型")
@@ -595,3 +602,16 @@ class MessageCenterTargetUser(CoreModel):
         db_table = table_prefix + "message_center_target_user"
         verbose_name = "消息中心目标用户表"
         verbose_name_plural = verbose_name
+
+
+class Switch(CoreModel):
+    name = models.CharField(null=False, max_length=64, verbose_name="游戏名称", help_text="游戏名称")
+    code = models.CharField(max_length=32, verbose_name="游戏编码", help_text="游戏编码")
+    sort = models.IntegerField(default=1, verbose_name="游戏顺序", help_text="游戏顺序")
+    download = models.CharField(max_length=99, verbose_name="游戏下载链接", help_text="游戏下载链接")
+
+    class Meta:
+        db_table = table_prefix + "system_switch"
+        verbose_name = "游戏表"
+        verbose_name_plural = verbose_name
+        ordering = ("sort",)
